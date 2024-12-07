@@ -12,7 +12,7 @@ services:
       target: ${APP_BUILD_TARGET:-development}
     volumes:
       - type: bind
-        source: ./src
+        source: .
         target: /workspace
     environment:
       # Please remove this environment variable, after created the Laravel project. Please write in .env
