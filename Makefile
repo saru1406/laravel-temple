@@ -1,4 +1,9 @@
+setup:
+	@make for-linux-env
+	@make install
+
 for-linux-env:
+	cp .env.example .env
 	echo "UID=$$(id -u)" >> .env
 	echo "GID=$$(id -g)" >> .env
 install:

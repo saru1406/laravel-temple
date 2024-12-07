@@ -11,8 +11,8 @@ ENV TZ=UTC \
   # composer environment
   COMPOSER_HOME=/composer
 
-ARG UID=1000
-ARG GID=1000
+ARG UID
+ARG GID
 
 COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
 
@@ -36,7 +36,7 @@ RUN <<EOF
     bcmath
   # permission denied bind mount in Linux environment
   groupadd --gid $GID phper
-  useradd --uid $UID --gid $GID phper
+  useradd --uid $UID --gid $GID -m phper
   mkdir /composer
   mkdir -p /home/phper/.config/psysh
   chown phper:phper /composer
